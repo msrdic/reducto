@@ -9,10 +9,26 @@
   },
   "content_scripts" : [
       { "matches" : ["*://*/"],
-        "js" : ["reducto_content.js"]
+        "js" : ["reducto_content.js", "reducto_remove.js"]
       }],
   "browser_action": {
-        "default_icon": "tab-icon.png"
+    "default_icon": "tab-icon.png"
+  },
+  "permissions": [ "activeTab" ],
+  "commands": {
+    "reducto-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "Reducto current selection"
     },
-    "permissions": [ "activeTab" ]
+    "reducto-remove": {
+        "suggested_key": {
+            "default": "Ctrl+Shift+K",
+            "mac": "Command+Shift+K"
+        },
+        "description": "Remove all sections"
+    }
+  }
 }
