@@ -17,3 +17,5 @@ if(document.getSelection().extentNode.nodeType == 3) {
     el.style = "background-color:black; color: black;"
     el.className += " __reducto__";
 }
+
+document.getSelection().removeAllRanges();
