@@ -1,0 +1,18 @@
+{ "manifest_version": 2,
+  "name": "Reducto",
+  "description": "Reduce the page to essential content.",
+  "version": "1",
+  "author": "Mladen Srdić",
+  "background": {
+      "scripts": ["reducto.js"],
+      "persistent" : false
+  },
+  "content_scripts" : [
+      { "matches" : ["*://*/"],
+        "js" : ["reducto_content.js"]
+      }],
+  "browser_action": {
+        "default_icon": "tab-icon.png"
+    },
+    "permissions": [ "activeTab" ]
+}
