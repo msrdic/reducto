@@ -1,4 +1,7 @@
-var text = document.getSelection().toString();
+var sel = document.getSelection();
+
+var text = sel.toString();
+
 var blackspan = document.createElement("span");
 blackspan.style.cssText = "background-color:black;color:black;";
 blackspan.className += " __reducto__";
@@ -8,14 +11,14 @@ if(text.substr(-1) == "\n") {
     blackspan.textContent = text;
 }
 
-if(document.getSelection().extentNode.nodeType == 3) {
-    document.getSelection().deleteFromDocument();
-    document.getSelection().collapseToStart();
-    document.getSelection().getRangeAt(0).insertNode(blackspan);
+if(sel.extentNode.nodeType == 3) {
+    sel.deleteFromDocument();
+    sel.collapseToStart();
+    sel.getRangeAt(0).insertNode(blackspan);
 } else {
-    var el = document.getSelection().baseNode.parentElement;
+    var el = sel.baseNode.parentElement;
     el.style = "background-color:black; color: black;"
     el.className += " __reducto__";
 }
 
-document.getSelection().removeAllRanges();
+sel.removeAllRanges();
